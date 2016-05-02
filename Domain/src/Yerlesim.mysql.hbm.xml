@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="none" package="com.iztek.ayniyat.yerlesim.domain">
+<class name="AbstractZimmetAlan" table="zimmetAlanlar" discriminator-value="ABSTRACT_ZIMMET_ALAN" abstract="true" >
+    <id name="id" column="ID" type="long">
+    	<generator class="identity"/>
+    </id>
+	<discriminator column="ZIMMET_ALAN_TIP" type="string"/>
+	<version column="VERSION" type="integer" name="version"/>
+	<property name="tanim" column="TANIM" type="string"/>
+	<set name="altKategoriler" cascade="all" inverse="true" lazy="true" sort="com.iztek.ayniyat.kategori.KategoriComparator">
+		<key column="PARENT_ID"/>
+		<one-to-many class="AbstractZimmetAlan"/>
+	</set>
+	<many-to-one name="anaKategori" class="AbstractZimmetAlan" column="PARENT_ID" lazy="false"/>
+	<set name="zimmetliMalzemeler" cascade="all-delete-orphan" inverse="true" lazy="true" sort="com.iztek.ayniyat.kategori.DemirbasMalzemeComparator">
+			<key column="ZIMMET_ALAN_ID" on-delete="noaction"/>
+			<one-to-many class="com.iztek.ayniyat.malzemehareketleri.domain.DemirbasMalzeme"/>
+	</set>
+	<subclass name="AbstractYapi" discriminator-value="ABSTRACT_YAPI" abstract="true">
+		<subclass name="Oda" discriminator-value="YAPI_ODA">
+			<property name="tip" column="TIP" type="string"/>
+			<property name="kat" column="KAT" type="integer"/>
+		</subclass>
+		<subclass name="Birim" discriminator-value="YAPI_BIRIM"/>
+		<subclass name="Bina" discriminator-value="YAPI_BINA"/>
+	</subclass>
+	<subclass name="Personel" discriminator-value="PERSONEL">
+		<property name="sicilNo" column="SICIL_NO" type="string"/>
+	</subclass>	
+	<subclass name="Ambar" discriminator-value="AMBAR">
+		<set name="kullanicilar" table="kullanici_ambar" lazy="true" cascade="all-delete-orphan">
+			<key column="AMBAR_ID"/>
+			<many-to-many class="com.iztek.ayniyat.kullanici.Kullanici" column="KULLANICI_ID"/>
+		</set>
+	</subclass>	
+</class>
+</hibernate-mapping>

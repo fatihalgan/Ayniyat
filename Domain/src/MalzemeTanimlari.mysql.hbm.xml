@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="none" package="com.iztek.ayniyat.malzemetanimi.domain">
+<class name="Kategori" table="kategoriler" discriminator-value="KATEGORI">
+    <id name="id" column="ID" type="long">
+    	<generator class="identity"/>
+    </id>
+	<discriminator column="KATEGORI_TIP" type="string"/>
+	<version column="VERSION" type="integer" name="version"/>
+	<property name="tanim" column="TANIM" type="string"/>
+	<property name="kod" type="string" column="KOD"/>
+	<set name="altKategoriler" cascade="all" inverse="true" lazy="true" sort="com.iztek.ayniyat.kategori.KategoriComparator">
+		<key column="PARENT_ID"/>
+		<one-to-many class="Kategori"/>
+	</set>
+	<many-to-one name="anaKategori" class="Kategori" column="PARENT_ID"/>
+	<subclass name="AbstractMalzemeTanimi" discriminator-value="ABSTRACT_MALZEME" abstract="true">
+		<property name="birim" type="string" column="BIRIM"/>
+		<set name="nitelikTanimlari"  lazy="false" table="nitelik_tanimlari" sort="com.iztek.ayniyat.kategori.NitelikComparator" cascade="all" >
+			<key column="MALZEME_ID"/>
+			<composite-element class="NitelikTanimi">
+				<parent name="owningMalzemeTanimi"/>
+				<property name="nitelikAdi" column="NITELIK_ADI" type="string" not-null="true"/>
+			</composite-element>
+		</set>
+		<set name="malzemeler" cascade="save-update" inverse="true" lazy="true">
+			<key column="MALZEME_TANIMI_ID"/>
+			<one-to-many class="com.iztek.ayniyat.malzemehareketleri.domain.AbstractMalzeme"/>
+		</set>
+		<subclass name="DemirbasMalzemeTanimi" discriminator-value="DEMIRBAS_MALZEME"/>
+	</subclass>	
+</class>
+</hibernate-mapping>

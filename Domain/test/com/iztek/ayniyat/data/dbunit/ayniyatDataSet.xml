@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dataset SYSTEM ".\test\com\iztek\ayniyat\data\dbunit\dataset.dtd">
+<dataset>
+    <table name="KATEGORILER">
+        <column>ID</column>
+        <column>KATEGORI_TIP</column>
+        <column>VERSION</column>
+        <column>TANIM</column>
+        <column>PARENT_ID</column>
+        <column>KOD</column>
+        <column>BIRIM</column>
+        <row>
+        	<value>1</value>
+        	<value>KATEGORI</value>
+        	<value>0</value>
+        	<value>Malzemeler</value>
+        	<null/>
+        	<null/>
+        	<null/>
+        </row>
+		<row>
+			<value>2</value>
+			<value>KATEGORI</value>
+			<value>0</value>
+			<value>Demirbaş Malzemeler</value>
+			<value>1</value>
+			<null/>
+			<null/>
+		</row>
+		<row>
+			<value>3</value>
+			<value>KATEGORI</value>
+			<value>0</value>
+			<value>Bilgisayar</value>
+			<value>2</value>
+			<null/>
+			<null/>
+		</row>
+		<row>
+			<value>4</value>
+			<value>DEMIRBAS_MALZEME</value>
+			<value>0</value>
+			<value>Kasa</value>
+			<value>3</value>
+			<value>303</value>
+			<value>Adet</value>
+		</row>
+		<row>
+			<value>5</value>
+			<value>DEMIRBAS_MALZEME</value>
+			<value>0</value>
+			<value>Ekran</value>
+			<value>3</value>
+			<value>304</value>
+			<value>Adet</value>
+		</row>
+		<row>
+			<value>6</value>
+			<value>KATEGORI</value>
+			<value>0</value>
+			<value>Elektronik Malzemeler</value>
+			<value>1</value>
+			<null/>
+			<null/>
+		</row>
+		<row>
+			<value>7</value>
+			<value>DEMIRBAS_MALZEME</value>
+			<value>0</value>
+			<value>Hesap Makinası</value>
+			<value>6</value>
+			<value>606</value>
+			<value>Adet</value>
+		</row>
+    </table>
+    
+    <table name="ZIMMETALANLAR">
+        <column>ID</column>
+        <column>ZIMMET_ALAN_TIP</column>
+        <column>VERSION</column>
+        <column>TANIM</column>
+        <column>PARENT_ID</column>
+        <column>TIP</column>
+        <column>KAT</column>
+        <column>SICIL_NO</column>
+        <row>
+        	<value>1</value>
+        	<value>YAPI_BIRIM</value>
+        	<value>0</value>
+        	<value>IYTE Kampüs</value>
+        	<null/>
+        	<null/>
+        	<null/>
+        	<null/>
+        </row>
+		<row>
+			<value>2</value>
+			<value>YAPI_BIRIM</value>
+			<value>0</value>
+			<value>Mühendislik Fakültesi</value>
+			<value>1</value>
+			<null/>
+			<null/>
+			<null/>
+		</row>
+		<row>
+			<value>3</value>
+			<value>YAPI_BINA</value>
+			<value>0</value>
+			<value>Bilgisayar Uygulama ve Araştırma Merkezi</value>
+			<value>2</value>
+			<null/>
+			<null/>
+			<null/>
+		</row>
+		<row>
+			<value>4</value>
+			<value>YAPI_ODA</value>
+			<value>0</value>
+			<value>106</value>
+			<value>3</value>
+			<value>Personel Odası</value>
+			<value>1</value>
+			<null/>
+		</row>	
+		<row>
+			<value>5</value>
+			<value>PERSONEL</value>
+			<value>0</value>
+			<value>Sevgi Uslu</value>
+			<value>4</value>
+			<null/>
+			<null/>
+			<value>66354</value>
+		</row>	
+		<row>
+			<value>6</value>
+			<value>AMBAR</value>
+			<value>0</value>
+			<value>Mühendislik Ambarı</value>
+			<value>2</value>
+			<null/>
+			<null/>
+			<null/>
+		</row>
+		<row>
+			<value>7</value>
+			<value>PERSONEL</value>
+			<value>0</value>
+			<value>Ibrahim Uyanık</value>
+			<value>6</value>
+			<null/>
+			<null/>
+			<value>11414</value>
+		</row>		
+    </table>
+    
+    <table name="MALZEMELER">
+        <column>ID</column>
+        <column>MALZEME_TIP</column>
+        <column>VERSION</column>
+        <column>VERGISIZ_BIRIMFIYAT_MIKTAR</column>
+        <column>VERGISIZ_BIRIMFIYAT_KUR</column>
+        <column>VERGILI_BIRIMFIYAT_MIKTAR</column>
+        <column>VERGILI_BIRIMFIYAT_KUR</column>
+        <column>ISKONTO_TUTARI_MIKTAR</column>
+        <column>ISKONTO_TUTARI_KUR</column>
+        <column>KDV_ORANI</column>
+        <column>OTV_ORANI</column>
+        <column>DURUM</column>
+        <column>MALZEME_TANIMI_ID</column>
+        <column>DEMIRBAS_NUMARASI</column>
+        <column>ZIMMET_ALAN_ID</column>
+        <row>
+        	<value>1</value>
+        	<value>DEMIRBAS</value>
+        	<value>0</value>
+        	<value>785</value>
+        	<value>YTL</value>
+        	<value>926.3</value>
+        	<value>YTL</value>
+        	<value>0</value>
+           	<value>YTL</value>
+        	<value>18</value>
+        	<value>0</value>
+        	<value>Zimmetli</value>
+        	<value>4</value>
+        	<value>1</value>
+        	<value>5</value>       	
+        </row>
+        <row>
+        	<value>2</value>
+        	<value>DEMIRBAS</value>
+        	<value>0</value>
+        	<value>790</value>
+        	<value>YTL</value>
+        	<value>932.2</value>
+        	<value>YTL</value>
+        	<value>0</value>
+           	<value>YTL</value>
+        	<value>18</value>
+        	<value>0</value>
+        	<value>Ambarda</value>
+        	<value>4</value>
+        	<value>2</value>
+        	<value>6</value>       	
+        </row>
+        <row>
+        	<value>3</value>
+        	<value>DEMIRBAS</value>
+        	<value>0</value>
+        	<value>165</value>
+        	<value>YTL</value>
+        	<value>194.7</value>
+        	<value>YTL</value>
+        	<value>0</value>
+           	<value>YTL</value>
+        	<value>18</value>
+        	<value>0</value>
+        	<value>Zimmetli</value>
+        	<value>5</value>
+        	<value>3</value>
+        	<value>5</value>       	
+        </row>
+    </table>
+    
+    <table name="NITELIK_TANIMLARI">
+    	<column>MALZEME_ID</column>
+        <column>NITELIK_ADI</column>
+        <row>
+        	<value>4</value>
+        	<value>Işlemci Hızı</value>
+        </row>
+        <row>
+        	<value>4</value>
+        	<value>Işlemci Tipi</value>
+        </row>
+        <row>
+        	<value>4</value>
+        	<value>Bellek</value>
+        </row>  
+        <row>
+        	<value>4</value>
+        	<value>Disk</value>
+        </row>   
+        <row>
+        	<value>5</value>
+        	<value>Marka</value>
+        </row> 
+        <row>
+        	<value>5</value>
+        	<value>Boyut</value>
+        </row> 
+        <row>
+        	<value>7</value>
+        	<value>Marka</value>
+        </row>                              
+    </table>
+    
+    <table name="NITELIK_DEGERLERI">
+    	<column>MALZEME_ID</column>
+        <column>NITELIK_ADI</column>
+        <column>NITELIK_DEGERI</column>        
+        <row>
+        	<value>1</value>
+        	<value>Işlemci Hızı</value>
+        	<value>2.4 GHz</value>
+        </row>
+        <row>
+        	<value>1</value>
+        	<value>Işlemci Tipi</value>
+        	<value>AMD</value>
+        </row>
+        <row>
+        	<value>1</value>
+        	<value>Bellek</value>
+        	<value>1 GB</value>
+        </row>  
+        <row>
+        	<value>1</value>
+        	<value>Disk</value>
+        	<value>80 GB</value>
+        </row>
+        <row>
+        	<value>2</value>
+        	<value>Işlemci Hızı</value>
+        	<value>2.6 GHz</value>
+        </row>
+        <row>
+        	<value>2</value>
+        	<value>Işlemci Tipi</value>
+        	<value>P4</value>
+        </row>
+        <row>
+        	<value>2</value>
+        	<value>Bellek</value>
+        	<value>512 MB</value>
+        </row>  
+        <row>
+        	<value>2</value>
+        	<value>Disk</value>
+        	<value>60 GB</value>
+        </row>  
+        <row>
+        	<value>3</value>
+        	<value>Marka</value>
+        	<value>LG</value>
+        </row> 
+        <row>
+        	<value>3</value>
+        	<value>Boyut</value>
+        	<value>17 Inch</value>
+        </row>   
+    </table>
+    
+    <table name="HAREKET_FISLERI">
+    	<column>ID</column>
+        <column>FIS_TIPI</column>
+        <column>VERSION</column>
+        <column>BELGE_NUMARASI</column>
+        <column>TESLIM_EDEN</column>
+        <column>DUZENLEME_TARIHI</column>
+        <column>ONAY_VEREN_ID</column>
+        <column>TOPLAM_TUTAR_MIKTAR</column>
+		<column>TOPLAM_TUTAR_KUR</column>
+        <column>GENELTOPLAM_TUTARI_MIKTAR</column>
+        <column>GENELTOPLAM_TUTARI_KUR</column>
+        <column>KDV_TUTARI_MIKTAR</column>
+        <column>KDV_TUTARI_KUR</column>
+        <column>OTV_TUTARI_MIKTAR</column>
+        <column>OTV_TUTARI_KUR</column>
+        <column>ISKONTO_TUTARI_MIKTAR</column>
+        <column>ISKONTO_TUTARI_KUR</column>
+        <column>GIRIS_SEKLI</column>
+		<column>ALINDIGI_KURULUS</column>
+        <column>FATURA_NO</column>
+        <column>FATURA_TARIHI</column>
+        <column>CIKIS_SEKLI</column>
+        <column>ALINIS_NEDENI</column>
+        <column>BOZULMA_NEDENI</column>
+        <column>BOZULUS_TARIHI</column>
+        <column>ZAYI_TUTANAK_NO</column>
+        <column>ZAYI_TUTANAK_TARIHI</column>
+        <column>ZAYIAT_TARIHI</column>
+		<column>ZAYIAT_NEDENI</column>
+        <column>ZAYI_EDEN</column>
+        <column>ZAYIAT_ACIKLAMASI</column>
+    	<row>
+        	<value>1</value>
+        	<value>GIRIS_FISI</value>
+        	<value>0</value>
+        	<value>1</value>
+        	<value>Mehmet Ali Öğer</value>
+        	<value>2005-03-11</value>
+        	<value>7</value>
+        	<value>1740</value>
+        	<value>YTL</value>
+        	<value>2053.2</value>
+        	<value>YTL</value>
+        	<value>313.2</value>
+        	<value>YTL</value>
+        	<value>0</value>
+        	<value>YTL</value>
+        	<value>0</value>
+        	<value>YTL</value>
+        	<value>Satınalma</value>
+        	<value>TeknoSa</value>
+        	<value>12546-85</value>
+        	<value>2005-03-10</value>
+			<null/>
+			<null/>
+			<null/>
+			<null/>
+			<null/>
+			<null/>
+			<null/>
+			<null/>
+			<null/>
+			<null/>
+        </row>
+	</table>
+	
+	<table name="HAREKET_YERLERI">
+    	<column>ID</column>
+        <column>VERSION</column>
+        <column>ZIMMET_ALAN_ID</column>   
+        <row>
+        	<value>1</value>
+        	<value>0</value>
+        	<value>6</value>
+        </row>	
+    </table>    
+    
+    <table name="HAREKETLER">
+        <column>ID</column>
+        <column>HAREKET_TIPI</column>
+        <column>VERSION</column>
+        <column>HAREKET_TARIHI</column>
+        <column>HAREKET_KAYNAGI_ID</column>
+        <column>HAREKET_HEDEFI_ID</column>
+        <column>GECICI_SAHIP_ID</column>
+        <column>HAREKET_FIS_ID</column>
+        <row>
+        	<value>1</value>
+        	<value>GIRIS</value>
+        	<value>0</value>
+        	<value>2005-03-11</value>
+        	<null/>
+			<value>1</value>
+			<null/>
+			<value>1</value>
+        </row>
+    </table>
+    
+   <table name="BELGE_NUMARASI">
+    	<column>ID</column>
+        <column>BELGE_NO</column>
+        <row>
+        	<value>1</value>
+        	<value>1</value>
+        </row>	
+    </table> 
+    
+   <table name="DEMIRBAS_NUMARALARI">
+    	<column>ID</column>
+        <column>SIRA_NO</column>
+        <column>ALT_SIRA_NO</column>
+        <row>
+        	<value>1</value>
+        	<value>3</value>
+        	<value>0</value>
+        </row>	
+    </table> 
+    
+   <table name="MALZEME_HAREKET">
+    	<column>MALZEME_ID</column>
+        <column>HAREKET_ID</column>
+        <row>
+        	<value>1</value>
+        	<value>1</value>
+        </row>
+        <row>
+        	<value>2</value>
+        	<value>1</value>
+        </row>
+        <row>
+        	<value>3</value>
+        	<value>1</value>
+        </row>
+    </table> 
+</dataset>

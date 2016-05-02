@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="none" package="com.iztek.ayniyat.malzemehareketleri.util">
+<class name="BelgeNoGenerator" table="belge_numarasi" schema="HAREKET">
+	<id name="id" column="ID" type="long">
+    	<generator class="identity"/>
+    </id>
+    <property name="belgeNo" column="BELGE_NO" type="long"/>
+</class>
+</hibernate-mapping>

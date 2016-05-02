@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="none" package="com.iztek.ayniyat.kullanici">
+<class name="Kullanici" table="kullanici" >
+	<id name="id" column="ID" type="long">
+		<generator class="foreign">
+			<param name="property">personel</param>
+		</generator>
+    </id>
+    <version name="version" column="VERSION" />	
+    <one-to-one name="personel" class="com.iztek.ayniyat.yerlesim.domain.AbstractZimmetAlan"  cascade="none" />  
+    <property name="userName" column="USERNAME" type="string" unique="true"/>
+    <property name="password" column="PASSWORD" type="string"/>
+	<set name="ambarlar" table="kullanici_ambar" lazy="true" cascade="none" inverse="true">
+		<key column="KULLANICI_ID"/>
+		<many-to-many class="com.iztek.ayniyat.yerlesim.domain.AbstractZimmetAlan" column="AMBAR_ID"/>
+	</set>
+</class>
+</hibernate-mapping>

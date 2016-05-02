@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/Domain"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="lib" path="lib/hibernate3.jar"/>
+	<classpathentry kind="lib" path="lib/junit-3.8.1.jar"/>
+	<classpathentry kind="lib" path="/Domain/lib/commons-collections-2.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-digester-1.7.jar"/>
+	<classpathentry kind="lib" path="lib/databinding-0.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/jasperreports-1.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/jdic-0.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/jdnc-0_7-all.jar"/>
+	<classpathentry kind="lib" path="lib/jdnc-runner.jar"/>
+	<classpathentry kind="lib" path="lib/jga-0.7.2-cddl.jar"/>
+	<classpathentry kind="lib" path="lib/jlfgr-1_0.jar"/>
+	<classpathentry kind="lib" path="lib/swingworker-0.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/swingx-0.8.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

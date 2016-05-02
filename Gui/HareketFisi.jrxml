@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="HareketFisi" language="java" pageWidth="595" pageHeight="425" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" whenResourceMissingType="Empty">
+	<property name="com.jasperassistant.designer.GridHeight" value="11"/>
+	<property name="com.jasperassistant.designer.GridWidth" value="11"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<parameter name="GenelToplam" class="java.lang.String">
+	</parameter>
+	<parameter name="BelgeNo" class="java.lang.String">
+	</parameter>
+	<parameter name="FaturaNo" class="java.lang.String">
+	</parameter>
+	<parameter name="AlanYer" class="java.lang.String">
+	</parameter>
+	<parameter name="VerenYer" class="java.lang.String">
+	</parameter>
+	<parameter name="Tarih" class="java.util.Date">
+	</parameter>
+	<field name="DemirbasNo" class="java.lang.String">
+	</field>
+	<field name="Cinsi" class="java.lang.String">
+	</field>
+	<field name="Birim" class="java.lang.String">
+	</field>
+	<field name="Fiyat" class="java.lang.String">
+	</field>
+	<field name="Tutar" class="java.lang.String">
+	</field>
+	<title>
+		<band height="93">
+			<staticText>
+				<reportElement positionType="Float" x="11" y="11" width="166" height="46"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MALZEME GİRİŞİ - ÇIKIŞI
+
+T.C Standart form No. 3.5.108]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="275" y="11" width="273" height="55"/>
+				<textElement>
+					<font fontName="Times New Roman" size="9"/>
+				</textElement>
+				<text><![CDATA[DİKKAT : 1.Bu form Kamu Kuruluşlarında malzemelerin kapı,ambar giriş,çıkış,teslim,tesellüm işlemlerinde kullanılır.
+2.Formun doldurulma nedeni ilgili seçme kutularının içine (X) işareti konularak belirtilir.]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="91">
+			<rectangle>
+				<reportElement positionType="Float" x="2" y="23" width="549" height="68"/>
+				<graphicElement/>
+			</rectangle>
+			<line>
+				<reportElement positionType="Float" x="2" y="56" width="549" height="1"/>
+				<graphicElement/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="72" y="24" width="1" height="66"/>
+				<graphicElement/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="8" y="24" width="63" height="16"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Alınış Tarihi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="9" y="58" width="58" height="16"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Taşıt Plaka No]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="233" y="24" width="1" height="67"/>
+				<graphicElement/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="77" y="24" width="69" height="15"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Alan Yer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="77" y="58" width="71" height="15"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Alınış Nedeni]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="360" y="23" width="1" height="68"/>
+				<graphicElement/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="239" y="23" width="75" height="17"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Veriliş Tarihi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="238" y="58" width="83" height="15"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Veren Yer]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="455" y="23" width="1" height="33"/>
+				<graphicElement/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="365" y="24" width="79" height="16"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Fatura No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="366" y="57" width="65" height="16"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Veriliş Nedeni]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="458" y="23" width="56" height="15"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Belge No]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="459" y="38" width="77" height="15"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{BelgeNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="76" y="38" width="80" height="17"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{AlanYer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="239" y="72" width="113" height="15"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{VerenYer}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement positionType="Float" x="10" y="6" width="12" height="11"/>
+				<graphicElement/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="27" y="5" width="36" height="16"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Giriş]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="95" y="5" width="36" height="16"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Çıkış]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="78" y="6" width="12" height="11"/>
+				<graphicElement/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="76" y="4" width="15" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="254" y="5" width="68" height="18"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Demirbaş]]></text>
+			</staticText>
+			<elementGroup>
+			<rectangle>
+				<reportElement positionType="Float" x="238" y="7" width="12" height="12"/>
+				<graphicElement/>
+			</rectangle>
+			</elementGroup>
+			<staticText>
+				<reportElement positionType="Float" x="235" y="5" width="17" height="16"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="360" y="5" width="16" height="17"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="379" y="6" width="98" height="17"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Tüketim Malzemesi]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="362" y="7" width="13" height="12"/>
+				<graphicElement/>
+			</rectangle>
+			<textField>
+				<reportElement positionType="Float" x="239" y="39" width="75" height="13"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{Tarih}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="17">
+			<rectangle>
+				<reportElement positionType="Float" x="2" y="3" width="549" height="14"/>
+				<graphicElement/>
+			</rectangle>
+			<line>
+				<reportElement positionType="Float" x="72" y="3" width="1" height="13"/>
+				<graphicElement/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="233" y="3" width="1" height="14"/>
+				<graphicElement/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="293" y="3" width="1" height="13"/>
+				<graphicElement/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="360" y="3" width="1" height="14"/>
+				<graphicElement/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="456" y="3" width="1" height="13"/>
+				<graphicElement/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="8" y="4" width="57" height="12"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[DemirbaşNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="76" y="2" width="73" height="13"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Cinsi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="235" y="3" width="53" height="14"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Ölçeği]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="302" y="4" width="49" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Miktarı]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="373" y="4" width="69" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Fiyatı]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="471" y="4" width="64" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Tutarı]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21">
+			<rectangle>
+				<reportElement positionType="Float" x="2" y="0" width="549" height="21"/>
+				<graphicElement/>
+			</rectangle>
+			<line>
+				<reportElement positionType="Float" x="72" y="-2" width="1" height="22"/>
+				<graphicElement/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="233" y="-2" width="1" height="22"/>
+				<graphicElement/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="293" y="-2" width="1" height="22"/>
+				<graphicElement/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="360" y="-2" width="1" height="22"/>
+				<graphicElement/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="456" y="-2" width="1" height="22"/>
+				<graphicElement/>
+			</line>
+			<textField>
+				<reportElement positionType="Float" x="9" y="4" width="57" height="13"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DemirbasNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="77" y="4" width="145" height="13"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Cinsi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="235" y="3" width="53" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Birim}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="320" y="3" width="18" height="14"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="374" y="5" width="67" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Fiyat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="471" y="3" width="64" height="15"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Tutar}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20">
+			<rectangle>
+				<reportElement positionType="Float" x="2" y="0" width="549" height="20"/>
+				<graphicElement/>
+			</rectangle>
+			<line>
+				<reportElement positionType="Float" x="456" y="1" width="1" height="18"/>
+				<graphicElement/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="403" y="2" width="52" height="14"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Toplam]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="461" y="2" width="80" height="13"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{GenelToplam}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="50">
+			<rectangle>
+				<reportElement positionType="Float" x="2" y="-1" width="549" height="47"/>
+				<graphicElement/>
+			</rectangle>
+			<line>
+				<reportElement positionType="Float" x="260" y="0" width="1" height="46"/>
+				<graphicElement/>
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="6" y="6" width="125" height="19"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Alan Yetkilinin Adı Soyadı ,İmzası]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="264" y="8" width="125" height="19"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Veren Yetkilinin Adı Soyadı ,İmzası]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="6" y="26" width="157" height="13"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{AlanYer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="264" y="28" width="133" height="13"/>
+				<textElement>
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{VerenYer}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-cascade="none" package="com.iztek.ayniyat.malzemehareketleri.domain">
+<class name="AbstractMalzeme" table="malzemeler" discriminator-value="ABSTRACT_MALZEME" abstract="true">
+	<id name="id" column="ID" type="long">
+    	<generator class="identity"/>
+    </id>
+	<discriminator column="MALZEME_TIP" type="string"/>
+	<version column="VERSION" type="integer" name="version"/>
+	<component name="paha" class="MalzemePahasi">
+		<property name="vergisizBirimFiyatMiktar" type="big_decimal" column="VERGISIZ_BIRIMFIYAT_MIKTAR"/>
+		<property name="vergisizBirimFiyatKur" type="string" column="VERGISIZ_BIRIMFIYAT_KUR"/>
+		<property name="vergiliBirimFiyatMiktar" type="big_decimal" column="VERGILI_BIRIMFIYAT_MIKTAR"/>
+		<property name="vergiliBirimFiyatKur" type="string" column="VERGILI_BIRIMFIYAT_KUR"/>
+		<property name="iskontoTutariMiktar" type="big_decimal" column="ISKONTO_TUTARI_MIKTAR"/>
+		<property name="iskontoTutariKur" type="string" column="ISKONTO_TUTARI_KUR"/>
+		<property name="kdvOrani" type="float" column="KDV_ORANI"/>
+		<property name="otvOrani" type="float" column="OTV_ORANI"/>
+	</component>
+	<property name="state" type="com.iztek.ayniyat.malzemehareketleri.persistence.usertypes.MalzemeStateUserType" column="DURUM"/>
+	<many-to-one name="malzemeTanimi" class="com.iztek.ayniyat.malzemetanimi.domain.AbstractMalzemeTanimi" column="MALZEME_TANIMI_ID" cascade="save-update"/>
+	<set name="malzemeHareketleri" table="malzeme_hareket" lazy="true" cascade="save-update" inverse="true">
+		<key column="MALZEME_ID"/>
+		<many-to-many class="AbstractMalzemeHareketi" column="HAREKET_ID"/>
+	</set>
+
+	<set name="demirbasNolari" table="malzeme_demirbasNo" lazy="true" >
+		<key column="MALZEME_ID"/>
+		<element type="string" column="DEMIRBAS_NUMARALARI" />
+		</set>
+	
+	<set name="nitelikDegerleri" lazy="false" table="nitelik_degerleri" sort="com.iztek.ayniyat.kategori.NitelikDegeriComparator" >
+		<key column="MALZEME_ID"/>
+		<composite-element class="NitelikDegeri">
+			<parent name="owningMalzeme"/>
+			<property name="nitelikAdi" column="NITELIK_ADI" type="string" not-null="true"/>
+			<property name="nitelikDegeri" column="NITELIK_DEGERI" type="string" not-null="true"/>
+		</composite-element>
+	</set>
+	<subclass name="DemirbasMalzeme" discriminator-value="DEMIRBAS">
+		<property name="demirbasNo" type="com.iztek.ayniyat.malzemehareketleri.persistence.usertypes.DemirbasNoUserType" column="DEMIRBAS_NUMARASI"/>
+		<many-to-one name="zimmetSahibi" class="com.iztek.ayniyat.yerlesim.domain.AbstractZimmetAlan" column="ZIMMET_ALAN_ID" lazy="false"/>
+	</subclass>
+	<subclass name="TuketimMalzemesi" discriminator-value="TUKETIM_MALZEMESI">
+		<subclass name="SureliTuketimMalzemesi" discriminator-value="SURELI_TUKETIM" />
+		<subclass name="SuresizTuketimMalzemesi" discriminator-value="SURESIZ_TUKETIM" />
+	</subclass>
+</class>	
+
+<class name="AbstractMalzemeHareketi" table="hareketler" discriminator-value="ABSTRACT_HAREKET" abstract="true" >
+	<id name="id" column="ID" type="long">
+    	<generator class="identity"/>
+    </id>
+    <discriminator column="HAREKET_TIPI" type="string"/>
+	<version name="version" column="VERSION" type="integer"/>
+	<property name="hareketTarihi" column="HAREKET_TARIHI" type="date"/>
+	<many-to-one name="hareketKaynagi" class="HareketYeri" column="HAREKET_KAYNAGI_ID" cascade="all"/>
+    <many-to-one name="hareketHedefi" class="HareketYeri" column="HAREKET_HEDEFI_ID" cascade="all"/>
+    <many-to-one name="geciciSahip" class="HareketYeri" column="GECICI_SAHIP_ID" cascade="all"/>
+	<many-to-one name="hareketFisi" class="AbstractMalzemeHareketFisi" column="HAREKET_FIS_ID" lazy="false" cascade="all" unique="true"/>
+	<set name="malzemeler" table="malzeme_hareket" lazy="true" cascade="save-update" >
+		<key column="HAREKET_ID"/>
+		<many-to-many class="AbstractMalzeme" column="MALZEME_ID"/>
+	</set>
+	<subclass name="MalzemeBozukHareketi" discriminator-value="BOZULMA"/>
+	<subclass name="MalzemeCikisHareketi" discriminator-value="CIKIS"/>
+	<subclass name="MalzemeDevirHareketi" discriminator-value="DEVIR"/>
+	<subclass name="MalzemeGirisHareketi" discriminator-value="GIRIS"/>
+	<subclass name="MalzemeZayiHareketi" discriminator-value="ZAYI"/>
+	<subclass name="MalzemeTerkinHareketi" discriminator-value="TERKIN">
+</subclass>
+</class>
+
+<class name="AbstractMalzemeHareketFisi" table="hareket_fisleri" discriminator-value="ABSTRACT_HAREKET_FISI" abstract="true" >
+	<id name="id" column="ID" type="long">
+    	<generator class="identity"/>
+    </id>	
+    <discriminator column="FIS_TIPI" type="string"/>
+    <version column="VERSION" type="integer" name="version"/>
+    <property name="belgeNo" type="com.iztek.ayniyat.malzemehareketleri.persistence.usertypes.BelgeNoUserType" column="BELGE_NUMARASI" unique="true"/>
+    <property name="teslimEden" column="TESLIM_EDEN" type="string"/>
+    <property name="duzenlemeTarihi" column="DUZENLEME_TARIHI" type="date"/>
+    <many-to-one name="onayVeren" class="com.iztek.ayniyat.yerlesim.domain.Personel" column="ONAY_VEREN_ID" cascade="none"/>
+    <one-to-one name="owningMalzemeHareketi" class="AbstractMalzemeHareketi" cascade="all" property-ref="hareketFisi"/>
+	    <component name="paha" class="MalzemeFisPahasi">
+		<property name="toplamTutarMiktar" column="TOPLAM_TUTAR_MIKTAR" type="big_decimal"/>
+		<property name="toplamTutarKur" column="TOPLAM_TUTAR_KUR" type="string"/>
+		<property name="genelToplamTutariMiktar" column="GENELTOPLAM_TUTARI_MIKTAR" type="big_decimal"/>
+		<property name="genelToplamTutariKur" column="GENELTOPLAM_TUTARI_KUR" type="string"/>
+		<property name="kdvTutariMiktar" column="KDV_TUTARI_MIKTAR" type="big_decimal"/>
+		<property name="kdvTutariKur" column="KDV_TUTARI_KUR" type="string"/>
+		<property name="otvTutariMiktar" column="OTV_TUTARI_MIKTAR" type="big_decimal"/>
+		<property name="otvTutariKur" column="OTV_TUTARI_KUR" type="string"/>
+		<property name="iskontoTutariMiktar" column="ISKONTO_TUTARI_MIKTAR" type="big_decimal"/>
+		<property name="iskontoTutariKur" column="ISKONTO_TUTARI_KUR" type="string"/>
+	</component>
+	<subclass name="MalzemeGirisFisi" discriminator-value="GIRIS_FISI">
+		<property name="girisSekli" column="GIRIS_SEKLI" type="string"/>
+		<property name="alindigiKurulus" column="ALINDIGI_KURULUS" type="string"/>
+		<property name="faturaNo" column="FATURA_NO" type="string"/>
+		<property name="faturaTarihi" column="FATURA_TARIHI" type="date"/>
+	</subclass>
+	<subclass name="MalzemeDevirFisi" discriminator-value="DEVIR_FISI"/>
+	<subclass name="MalzemeCikisFisi" discriminator-value="CIKIS_FISI">
+		<property name="cikisSekli" column="CIKIS_SEKLI" type="string"/>
+		<property name="alinisNedeni" column="ALINIS_NEDENI" type="string"/>
+	</subclass>
+	<subclass name="MalzemeBozukFisi" discriminator-value="BOZUK_FISI">
+		<property name="bozulmaNedeni" column="BOZULMA_NEDENI" type="string"/>
+		<property name="bozulusTarihi" column="BOZULUS_TARIHI" type="date"/>
+	</subclass>
+		<subclass name="MalzemeZayiFisi" discriminator-value="ZAYI_FISI">
+		<component name="hareketBilgileri" class="HareketBilgileri">
+			<property name="tutanakNo" column="ZAYI_TUTANAK_NO" type="string"/>
+			<property name="tutanakTarihi" column="ZAYI_TUTANAK_TARIHI" type="date"/>
+			<property name="zayi_terkinTarihi" column="ZAYIAT_TARIHI" type="date"/>
+			<property name="zayi_terkinNedeni" column="ZAYIAT_NEDENI" type="string"/>
+			<property name="zayi_terkinEden" column="ZAYI_EDEN" type="string"/>
+			<property name="aciklama" column="ZAYIAT_ACIKLAMASI" type="string"/>
+		</component>
+	</subclass>
+		<subclass name="MalzemeTerkinFisi" discriminator-value="TERKIN_FISI">
+			<component name="hareketBilgileri" class="HareketBilgileri">
+				<property name="tutanakNo" column="ZAYI_TUTANAK_NO" type="string">
+				</property>
+				<property name="tutanakTarihi"
+					column="ZAYI_TUTANAK_TARIHI" type="date">
+				</property>
+				<property name="zayi_terkinTarihi" column="ZAYIAT_TARIHI"
+					type="date">
+				</property>
+				<property name="zayi_terkinNedeni" column="ZAYIAT_NEDENI"
+					type="string">
+				</property>
+				<property name="zayi_terkinEden" column="ZAYI_EDEN"
+					type="string">
+				</property>
+				<property name="aciklama" column="ZAYIAT_ACIKLAMASI"
+					type="string">
+				</property>
+			</component>
+		</subclass>
+</class>
+
+<class name="HareketYeri" table="hareket_yerleri" >
+	<id name="id" column="ID" type="long">
+    	<generator class="identity"/>
+    </id>	
+	<version name="version" column="VERSION" type="integer"/>
+	<many-to-one name="hareketYeri" class="com.iztek.ayniyat.yerlesim.domain.AbstractZimmetAlan" column="ZIMMET_ALAN_ID" cascade="none" lazy="false"/>	
+</class>
+</hibernate-mapping>

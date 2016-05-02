@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="stokSorgu" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30">
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.Rulers" value="true"/>
+	<property name="com.jasperassistant.designer.HGuides" value="10,107,200,330,437"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false"/>
+	<property name="com.jasperassistant.designer.VGuides.Title" value="1"/>
+	<property name="com.jasperassistant.designer.Margins" value="true"/>
+	<property name="com.jasperassistant.designer.Units" value="Millimeters"/>
+	<property name="com.jasperassistant.designer.Grid" value="true"/>
+	<property name="com.jasperassistant.designer.VGuides.Detail" value="0"/>
+	<property name="com.jasperassistant.designer.SnapToGuides" value="true"/>
+	<property name="com.jasperassistant.designer.VGuides.Column Header" value="6,30"/>
+	<field name="Ambar" class="java.lang.String">
+	</field>
+	<field name="MalzemeKodu" class="java.lang.String">
+	</field>
+	<field name="MalzemeTanimi" class="java.lang.String">
+	</field>
+	<field name="Miktar" class="java.lang.String">
+	</field>
+	<field name="Birim" class="java.lang.String">
+	</field>
+	<title>
+		<band height="50">
+			<rectangle>
+				<reportElement positionType="Float" x="1" y="1" width="553" height="44"/>
+				<graphicElement/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="8" width="196" height="31"/>
+				<textElement>
+					<font fontName="Dialog" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ambar Stokları]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="368" y="14" width="70" height="22"/>
+				<textElement>
+					<font fontName="Dialog" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tarih :]]></text>
+			</staticText>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement positionType="Float" x="437" y="15" width="100" height="21"/>
+				<textElement>
+					<font fontName="Dialog" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="37">
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="0" width="555" height="31"/>
+				<graphicElement/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="11" width="98" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="11"/>
+				</textElement>
+				<text><![CDATA[Ambar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="214" y="11" width="117" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="11"/>
+				</textElement>
+				<text><![CDATA[Malzeme Tanımı]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="344" y="11" width="93" height="21"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="11"/>
+				</textElement>
+				<text><![CDATA[Stok Miktarı
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="453" y="10" width="85" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="11"/>
+				</textElement>
+				<text><![CDATA[Birimi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="110" y="11" width="90" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Malzeme Kodu]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" mode="Transparent" x="107" y="0" width="94" height="31"/>
+				<graphicElement/>
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" mode="Transparent" x="330" y="0" width="109" height="31"/>
+				<graphicElement/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28">
+			<textField>
+				<reportElement positionType="Float" x="2" y="4" width="106" height="20"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Dialog" size="11"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Ambar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="107" y="4" width="88" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="11"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{MalzemeKodu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="204" y="4" width="118" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="11"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{MalzemeTanimi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="341" y="6" width="80" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="11"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Miktar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="445" y="6" width="80" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Dialog" size="11"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Birim}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

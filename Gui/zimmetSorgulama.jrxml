@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created using an evaluation version of JasperAssistant (http://www.jasperassistant.com) -->
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport name="ZimmetSorgulama" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" whenResourceMissingType="Empty">
+	<property name="com.jasperassistant.designer.GridWidth" value="12"/>
+	<property name="com.jasperassistant.designer.GridHeight" value="12"/>
+	<property name="com.jasperassistant.designer.DataSource" value="empty"/>
+	<property name="com.jasperassistant.designer.SnapToGrid" value="false"/>
+	<property name="com.jasperassistant.designer.Grid" value="false"/>
+	<parameter name="demirbasSahibi" class="java.lang.String">
+	</parameter>
+	<parameter name="toplam" class="java.lang.String">
+	</parameter>
+	<field name="demirbasNo" class="java.lang.String">
+	</field>
+	<field name="Cinsi" class="java.lang.String">
+	</field>
+	<field name="Olcek" class="java.lang.String">
+	</field>
+	<field name="zimmetSahibi" class="java.lang.String">
+	</field>
+	<pageHeader>
+		<band height="50">
+			<staticText>
+				<reportElement positionType="Float" x="14" y="10" width="83" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Zimmet Sahibi :]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="97" y="13" width="157" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{demirbasSahibi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="334" y="12" width="40" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Tarih :]]></text>
+			</staticText>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement positionType="Float" x="375" y="12" width="66" height="18"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="32">
+			<rectangle>
+				<reportElement positionType="Float" x="3" y="2" width="549" height="30"/>
+				<graphicElement/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="6" y="4" width="94" height="23"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Demirbaş No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="106" y="4" width="138" height="23"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Cinsi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="250" y="4" width="84" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Ölçek]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="340" y="4" width="300" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Zimmet Sahibi]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="102" y="2" width="1" height="29"/>
+				<graphicElement/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="246" y="2" width="1" height="30"/>
+				<graphicElement/>
+			</line>
+			<line>
+				<reportElement positionType="Float" x="337" y="2" width="1" height="28"/>
+				<graphicElement/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" isSplitAllowed="false">
+			<textField>
+				<reportElement positionType="Float" x="12" y="4" width="84" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{demirbasNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="109" y="3" width="77" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Cinsi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="254" y="4" width="76" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Olcek}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="349" y="4" width="250" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{zimmetSahibi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="22">
+			<rectangle>
+				<reportElement positionType="Float" x="2" y="0" width="550" height="21"/>
+				<graphicElement/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="441" y="2" width="40" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<text><![CDATA[Toplam]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="481" y="2" width="42" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{toplam}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25">
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="50">
+		</band>
+	</summary>
+</jasperReport>
